@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->id();
+            // $table->enum('name', ['mobiles', 'laptop']);
             $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
             $table->string('logo')->nullable();
+            $table->softDeletes();
             $table->timestamps();
-        });
+         });
     }
 
     /**

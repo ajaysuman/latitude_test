@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
+            $table->string('logo')->nullable();
+             $table->unsignedBigInteger('category_id');
+            $table->softDeletes();
             $table->timestamps();
+            $table->foreign('category_id')
+              ->references('id')->on('category')->onDelete('cascade');
         });
     }
 
